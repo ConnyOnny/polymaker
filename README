@@ -1,0 +1,15 @@
+This tool reads pngs in color format RGBA only. It applies thresholding on the alpha channel and saves the shape of the depicted object as a list of points. Then it greedily removes the points which impact the shape least until there would be too much removed or the specified number of points is reached.
+
+Settings are currently done in the polymaker.cpp file (search for "TWEAK" in comments). The only parameter the program takes is the path to a png file and the output is written to stdout.
+
+Building:
+You need the libpng library and development headers (on Ubuntu this is the package libpng12-dev), a c++ compiler and make.
+To build, just type
+	make
+
+Usage:
+If you have tweaked the code so that it produces pbm images with the vertexes, you could want to call the program somehow like this:
+	./polymaker image.png > vertexes.pbm
+
+You can open pbm pictures with different graphic programs. I use GIMP.
+
